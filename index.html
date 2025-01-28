@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Platos Típicos del Perú</title>
+</head>
+<body>
+    <header>
+        <h1>Platos típicos del Perú</h1>
+        <div class="menu">
+            <ul>
+                <li>Inicio</li>
+                <li>Categorías</li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="content">
+            <img src="https://i.ytimg.com/vi/sWXRJbGi6yQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAmzgGJ6J0eLasWLgYE-TcZgyiSJQ" alt="Lomo Saltado">
+            <h2>Lomo Saltado</h2>
+            <p>El lomo saltado es un plato tradicional peruano que combina carne de res, cebolla, tomate y papas fritas, sazonado con especias y acompañado de arroz.</p>
+
+            <!-- Flechas de navegación -->
+            <div class="navigation">
+                <span class="arrow" onclick="previousDish()">⬅</span>
+                <span class="arrow" onclick="nextDish()">➡</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let dishes = [
+            { 
+                name: "Lomo Saltado", 
+                img: "https://i.ytimg.com/vi/sWXRJbGi6yQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAmzgGJ6J0eLasWLgYE-TcZgyiSJQ",
+                desc: "El lomo saltado es un plato tradicional peruano que combina carne de res, cebolla, tomate y papas fritas, sazonado con especias y acompañado de arroz."
+            },
+            { 
+                name: "Ceviche", 
+                img: "https://cdn0.recetasgratis.net/es/posts/8/7/2/ceviche_mixto_peruano_77278_orig.jpg",
+                desc: "El ceviche es un plato peruano preparado con pescado fresco marinado en jugo de limón, cebolla y ají, acompañado de camote y maíz."
+            }
+        ];
+        
+        let currentIndex = 0;
+
+        function updateDish() {
+            document.querySelector(".content img").src = dishes[currentIndex].img;
+            document.querySelector(".content h2").textContent = dishes[currentIndex].name;
+            document.querySelector(".content p").textContent = dishes[currentIndex].desc;
+        }
+
+        function previousDish() {
+            currentIndex = (currentIndex === 0) ? dishes.length - 1 : currentIndex - 1;
+            updateDish();
+        }
+
+        function nextDish() {
+            currentIndex = (currentIndex === dishes.length - 1) ? 0 : currentIndex + 1;
+            updateDish();
+        }
+    </script>
+
+</body>
+</html>
